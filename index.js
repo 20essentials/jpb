@@ -1,6 +1,6 @@
 /******************** SONGS ********************/
 
-const nameBand = 'JBP ';
+const nameBand = 'JPB';
 
 const nameSongs = [
 	"HIGH", /*1*/
