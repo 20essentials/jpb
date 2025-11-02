@@ -1,33 +1,9 @@
 /******************** SONGS ********************/
-
-const nameBand = 'JPB';
-
-const nameSongs = [
-	"HIGH", /*1*/
-	"LONG NIGHT PT. II", /*2*/
-	"TOP FLOOR", /*3*/
-	"LOSING CONTROL", /*4*/
-	"LONG NIGHT ", /*5*/
-	"WHAT I WANT", /*6*/
-	"ALL STOPS NOW", /*7*/
-	"GET OVER YOU", /*8*/
-	"FEELS RIGHT", /*9*/
-	"DEFEAT THE NIGHT", /*10*/
-	"LEVITATE", /*11*/
-	"FLY AWAY", /*12*/
-	"UP & AWAY", /*13*/
-	"NIGHTCORE HIGH", /*14*/
-	"IT'S NOTHIN", /*15*/
-	"DWMU", /*16*/
-	"CHOOSE", /*17*/
-	"DEFEAT THE NIGHT", /*18*/
-	"AFFECTION", /*19*/
-	"BE WITH YOU", /*20*/
-]
-
-const arraySongs = Array.from({ length: 20 }, (_, i) => `songs/n${i + 1}.mp3`);
+import { nameBand, nameSongs } from './config.js';
 
 const MAXIMUM_LENGTH_OF_PLAYLIST = 20;
+const arraySongs = Array.from({ length: MAXIMUM_LENGTH_OF_PLAYLIST }, (_, i) => `songs/n${i + 1}.mp3`);
+
 function updateRowsModalAndButtonActive() {
   setTimeout(() => {
     updateButtonNavActive($('.am-button-nav-modal.order'), 'button-nav-selected');
@@ -36,28 +12,11 @@ function updateRowsModalAndButtonActive() {
 }
 
 /******************** MEDIA SESSION CONFIG ********************/
-const playlist = [
-  { title: nameSongs[0]?.trim(), artist: nameBand, url: arraySongs[0] },
-  { title: nameSongs[1]?.trim(), artist: nameBand, url: arraySongs[1] },
-  { title: nameSongs[2]?.trim(), artist: nameBand, url: arraySongs[2] },
-  { title: nameSongs[3]?.trim(), artist: nameBand, url: arraySongs[3] },
-  { title: nameSongs[4]?.trim(), artist: nameBand, url: arraySongs[4] },
-  { title: nameSongs[5]?.trim(), artist: nameBand, url: arraySongs[5] },
-  { title: nameSongs[6]?.trim(), artist: nameBand, url: arraySongs[6] },
-  { title: nameSongs[7]?.trim(), artist: nameBand, url: arraySongs[7] },
-  { title: nameSongs[8]?.trim(), artist: nameBand, url: arraySongs[8] },
-  { title: nameSongs[9]?.trim(), artist: nameBand, url: arraySongs[9] },
-  { title: nameSongs[10]?.trim(), artist: nameBand, url: arraySongs[10] },
-  { title: nameSongs[11]?.trim(), artist: nameBand, url: arraySongs[11] },
-  { title: nameSongs[12]?.trim(), artist: nameBand, url: arraySongs[12] },
-  { title: nameSongs[13]?.trim(), artist: nameBand, url: arraySongs[13] },
-  { title: nameSongs[14]?.trim(), artist: nameBand, url: arraySongs[14] },
-  { title: nameSongs[15]?.trim(), artist: nameBand, url: arraySongs[15] },
-  { title: nameSongs[16]?.trim(), artist: nameBand, url: arraySongs[16] },
-  { title: nameSongs[17]?.trim(), artist: nameBand, url: arraySongs[17] },
-  { title: nameSongs[18]?.trim(), artist: nameBand, url: arraySongs[18] },
-  { title: nameSongs[19]?.trim(), artist: nameBand, url: arraySongs[19] }
-];
+const playlist = Array.from({ length: MAXIMUM_LENGTH_OF_PLAYLIST }, (_, i) => ({
+  title: nameSongs[i]?.trim(),
+  artist: nameBand,
+  url: arraySongs[i]
+}));
 
 function toCapitalize(text = '') {
   return text
